@@ -10,6 +10,7 @@
 	<script src="js/temp2controller.js"></script>
 	<script src="js/jquery-3.0.0.js"></script>
 	<script src="js/angular-dragdrop.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="customStyles.css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
@@ -28,10 +29,16 @@
 						<a class="nav-link" href="#">Features</a>
 					</li> -->
 					<li class="nav-item">
-						<a class="nav-link" href="#">View JSON</a>
+						<a class="nav-link" href="#">Other 1</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Export JSON</a>
+						<a class="nav-link" href="#">Other 2</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Other 3</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Other 4</a>
 					</li>
 				</ul>
 			</nav>	
@@ -40,26 +47,28 @@
 	</div>	
 	<div class="left panel col-md-3" ng-controller="TestCtrl" >
 		<h2>Page list</h2>
-		<button type="button" class="btn" ng-click="">+</button>
+		<button add-page-button class="btn">+</button>
 		<button type="button" class="btn" ng-click="">-</button>
+		
 		<div class="pageList">
 			<ul class="list-group" ng-controller="ListCtrl">
 				<li class="list-group-item" ng-repeat="page in pages">
-						<h4><a href="#" ng-click="showDetails = ! showDetails">{{page.name}}</a></h4></li>
-							<div class="page-details" ng-class="{'hidden': ! showDetails}">
+					<p> {{page.number}} </p>
+				</li>
+				<!-- <li class="list-group-item" ng-repeat="page in pages">
+					<h4><a href="#" ng-click="showDetails = ! showDetails">{{page.name}}</a></h4></li>
+					<div class="page-details" ng-class="{'hidden': ! showDetails}">
 						<p>Page :{{page.number}}</p>	
 					</div>
-				</li>
+				</li> -->
 			</ul>			
+		</div>        
+		<div class="procedure-details" ng-class="{ 'hidden': ! showDetails }">
+			<p>Number of patient discharges: {{procedure.discharged}}</p>
 		</div>
-
-        
-         <div class="procedure-details" ng-class="{ 'hidden': ! showDetails }">
-            <p>Number of patient discharges: {{procedure.discharged}}</p>
-         </div>
-    </li>
+	</li>
 </ul>
-		<!-- <div dropper></div> -->
+<!-- <div dropper></div> -->
 		<!-- <ul class="pageList">
 	</ul> -->
 	<!-- <panel title="Personal Data" edit="#/employee/{{employee.id}}/edit"></panel> -->

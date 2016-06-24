@@ -1,34 +1,38 @@
-var myApp = angular.module('dropTests',['ngRoute','ngDragDrop']);
+var myApp = angular.module('dropTests',['ngRoute','ngDragDrop','ngStorage']);
 
 /*--------Controllers-----------------------*/
 myApp.controller('TestCtrl', ['$scope', function($scope){
 	$scope.img = 'IMG';
-  $scope.txt = 'TXT';
-}])
+  $scope.txt = 'TXT';}])
 
 myApp.controller('TwoCtrl', ['$scope', function($scope){
   $scope.img = 'img';
-  $scope.vid = 'VID';
-}])
+  $scope.vid = 'VID';}])
 
-myApp.controller('ListCtrl', ['$scope', function($scope){
-  $scope.pages = [
-    {
-      name: 'Page 1',
-      number: '.1'
-    },
-    {
-      name: 'Page 2',
-      number: '2'
-    },
-    {
-      name: 'Page 3',
-      number: '3'
-    }
-  ]
-}])
+myApp.controller('ListCtrl', ['$scope','$localStorage','Page', function($scope, Page, $localStorage){
+  $scope.$on('pages.update', function(event){
+    $scope.pages = Page.pages;
+    console.log($scope.pages);
+    $localStorage.pages = $scope.pages;
+    console.log($localStorage.pages);
+  });
+  $scope.pages = Page.pages;
+}]);
 
 /*--------Directives-----------------------*/
+
+myApp.directive("addPageButton", ['Page', function(Page){
+  return{
+    restrict: "A",
+    link: function (scope, element, attrs){
+      element.bind("click", function() {
+        Page.addPage({number: "3", content: "img"});
+      });
+    }
+  }
+}]);
+
+
 myApp.directive('myDraggable', ['$document', function($document) {
   return {
   	templateUrl: 'templates/temp1.html',
@@ -40,7 +44,7 @@ myApp.directive('myDraggable', ['$document', function($document) {
        border: '1px solid red',
        backgroundColor: 'lightgrey',
        cursor: 'pointer'
-      });
+     });
 
       element.on('mousedown', function(event) {
         // Prevent default dragging of selected content
@@ -74,9 +78,9 @@ myApp.directive('myDraggable', ['$document', function($document) {
 myApp.directive('imgDirective', function(){
   return {
     templateUrl: function(elem, attr){
-         return 'templates/insert-'+attr.data+'.html';
-    }
-  };
+     return 'templates/insert-'+attr.data+'.html';
+   }
+ };
 });
 // myApp.directive('panel', function () {
 //     return {
@@ -97,6 +101,23 @@ myApp.directive('imgDirective', function(){
 
 
 /*--------Services-----------------------*/
+
+myApp.service('Page',['$rootScope', function($rootScope){
+  var service = {
+    pages:[
+      {number: "1", content: "img"},
+      {number: "2", content: "wav"}
+      ],
+
+    addPage: function (page){
+      console.log("Service addPage called ");
+      service.pages.push(page);
+      $rootScope.$broadcast('pages.update');
+    }
+  }
+  return service;
+}])
+
 // myApp.service('myService', function($http) { 
 //     return {
 //         getHTML: function() {
