@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular UI Test DnD</title>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-drag-and-drop-lists.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script src="js/angular-resource.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/temp2controller.js"></script>
+	<script src="js/jquery-3.0.0.js"></script>
+	<script src="js/angular-dragdrop.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.js"></script>
+	<script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="customStyles.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/formats.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+</head>
+<body ng-app="dropTests">
+	<div class="nav">
+		<div class="nav col-md-4" ></div>
+		<div class="nav col-md-4" >
+			<nav class="navbar navbar-light bg-faded">
+				<ul class="nav navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Publish <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Other 1</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Other 2</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Other 3</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Other 4</a>
+					</li>
+				</ul>
+			</nav>	
+		</div>
+		<div class="nav col-md-4" ></div>
+	</div>
+
+
+
+	<div class="left panel col-md-3" ng-controller="TestCtrl as fun" >
+		<h2>Page list</h2>
+		<button add-page class="btn">+</button>
+		<button><div go-for>Test</div></button>
+		<button type="button" class="btn" ng-click="">-</button>
+		
+
+
+
+
+		<div class="pageList" >
+			<ul class="list-group"  ng-bind-html="pageTemp">
+				<li class="list-group-item" ng-repeat="page in pages">
+					<p> {{page.number}} </p>
+				</li>
+				<!-- <li class="list-group-item" ng-repeat="page in pages">
+					<h4><a href="#" ng-click="showDetails = ! showDetails">{{page.name}}</a></h4></li>
+					<div class="page-details" ng-class="{'hidden': ! showDetails}">
+						<p>Page :{{page.number}}</p>	
+					</div>
+				</li> -->
+			</ul>			
+		</div>
+	</ul>
+	<!-- <div dropper></div> -->
+		<!-- <ul class="pageList">
+	</ul> -->
+	<!-- <panel title="Personal Data" edit="#/employee/{{employee.id}}/edit"></panel> -->
+
+</div>
+<!-- CONTENT AREA------------------------------------------------------------------------------------------------------------- -->
+<div class="content panel col-md-6" ng-controller="ContentCtrl">
+	
+	<div id="forTest" class="defaultClass1" class-rem="boolean1" ng-class="{'defaultClass1':default1, 'style1' : styleCh1}"><h2>1</h2></div>
+	
+	<div class="defaultClass2" class-rem="boolean2" ng-class="{'defaultClass2':default2, 'style1' : styleCh1, 'style2': styleCh2, 'style3': styleCh3}"><h2>2</h2></div>
+	<div class="defaultClass3" class-rem="boolean3" ng-class="{'defaultClass3':default3, 'style1' : styleCh1, 'style2': styleCh2, 'style3': styleCh3}"><h2>3</h2></div>
+	<div class="formatButton col-md-6">
+			<ul class="list-inline > li">
+				<li><h3><button class="btn" ng-click="toggleClass1()"><i class="fa fa-braille" aria-hidden="true" ></i></button></h3></li>
+				<li><h3><button class="btn" ng-click="boolean1()"><i class="fa fa-braille" aria-hidden="true" ></i></button></h3></li>
+				<li><h3><button class="btn" ng-click="toggleClass3()"><i class="fa fa-braille" aria-hidden="true" ></i></button></h3></li>
+			</ul>
+		</div>
+</div>
+<div class="right panel col-md-3" ><h1>Elements</h1>
+	<ul class="list-group">
+		<li><button my-Draggable data="img" class="list-group-item"></button></li>
+		<li><button my-Draggable data="txt" class="list-group-item"> </button></li>
+	</ul>
+</div>
+
+
+
+
+<!-- <div class="panel col-md-12" ng-controller="FormatCtrl">
+	<div class="panel col-md-4"></div>
+	<div  class="bottomBar panel col-md-4"></div>
+	<div class="panel col-md-4"></div>
+	<ul class="list-inline > li">
+		<li><h3><button class="btn" ng-click="toggleCss()"><i class="fa fa-braille" aria-hidden="true" ng-click="toggle1()"></i></button></h3></li>
+
+	</ul>	
+</div> -->
+</body>
+
+</html>

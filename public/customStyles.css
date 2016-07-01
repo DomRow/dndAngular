@@ -1,0 +1,61 @@
+li{
+	list-style-type: none;
+}
+
+.left{
+	background-color: #bdc3c7;
+	height:500px;
+	width:20%;
+}
+
+.pageList{
+	padding:10px;
+	margin:10px;
+}
+
+.content{
+	background-color: blue;	
+	height:500px;
+	z-index: -1;
+	width:60%;
+}
+
+.page-details{
+	max-height: 100px;
+    transition: .8s;
+    overflow: hidden;
+}
+
+.page-details.hidden {
+    max-height: 0;
+}
+
+.right{
+	background-color: #bdc3c7;
+	height:500px;
+	width:20%;
+	z-index: -1;
+}
+
+.bottomBar{
+	background-color: green;
+}
+
+ul#list li{
+	display: inline;
+}
+
+.nav{
+	
+}
+
+.navMain{
+	text-align: center;
+
+}
+
+.button{
+	background-color: green;
+	border-radius: 2px;
+	box-shadow: none;
+}

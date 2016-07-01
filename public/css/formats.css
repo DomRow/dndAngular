@@ -1,0 +1,59 @@
+
+.defaultClass1{
+	width: 100%;
+	height: 50%;
+	background-color: #d3d3d3;
+	float:left;
+}
+
+.defaultClass2{
+	width: 50%;
+	height: 50%;
+	background-color: #bdbdbd;
+	float:left;
+}
+
+.defaultClass3{
+	width: 50%;
+	height: 50%;
+	background-color: #a8a8a8;
+	float:left;
+}
+
+.style1{
+	width:50%;
+	background-color: pink;
+	float:left;
+	height: 40%;
+	
+	}
+
+.style2{
+	width:50%;
+	background-color: purple;
+	float:left;
+	height: 40%;
+	
+}
+
+.style3{
+	width:100%;
+	background-color: brown;
+	height: 50%;
+	
+}
+
+.actives{
+	background-color: black;
+	width:100%;
+	height: 100%;
+}
+
+.formatButton{
+	position: fixed;
+	bottom:0;
+}
+
+h2 {
+	text-align: center;
+}
